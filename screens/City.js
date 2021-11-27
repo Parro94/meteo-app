@@ -1,10 +1,10 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 
-const City = (props) => {
+const City = ({route}) => {
     return (
         <View>
-            <Text style={{marginTop: 70}}>{props.route.params.title}</Text>
+            <Text style={{marginTop: 70}}>{route.params.title}</Text>
         </View>
     )
 }

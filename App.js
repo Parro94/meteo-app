@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons'
 import Home from './screens/Home'
 import City from './screens/City'
 import Profile from './screens/Profile'
+import { colors } from './utils/colors';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -15,11 +16,11 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
-        headerStyle: { backgroundColor: 'orange' },
+        headerStyle: { backgroundColor: colors.mainOrange },
         headerTitleStyle: { fontWeight: 'bold' }
       }}>
         <Stack.Screen name="Home" component={tabNavigation} />
-        <Stack.Screen name="City" component={City} />
+        <Stack.Screen options={({ route }) => ({ title: route.params.title })} name="City" component={City} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -40,9 +41,9 @@ const tabNavigation = () => {
         return <Ionicons name={iconName} size={size} color={color} />
       }
     })}
-    tabBarOptions={{
-      activeTintColor: 'red'
-    }}>
+      tabBarOptions={{
+        activeTintColor: 'red'
+      }}>
       <Tab.Screen name='Home' component={Home} options={{ headerShown: false }} />
       <Tab.Screen name='Profile' component={Profile} options={{ headerShown: false }} />
     </Tab.Navigator>
