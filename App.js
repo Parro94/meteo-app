@@ -23,7 +23,7 @@ const App = () => {
         <Stack.Screen options={({ route }) => ({ title: route.params.title })} name="City" component={City} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  ); 
 }
 
 const tabNavigation = () => {
